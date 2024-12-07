@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>AGRO.IA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1b8d11;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-image: url("agricultor_no_celular-transformed.jpeg");
+            background-repeat: no-repeat;
+            
+        }
+
+        .noheader{
+            color: #1b8d11;
+        }
+
+        
+
+        .topo{
+            
+        }
+
+        .header {
+            background-color: white;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+        }
+        .header img {
+            width: 170px;
+            margin-top: -80px;
+            margin-bottom: -80px;
+            justify-content: space-around;
+            overflow: hidden;
+        }
+        .header button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #10c800;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .header button:hover {
+            background-color: #1b8d11;
+        }
+        .tabs {
+            display: flex;
+            justify-content:left;
+            background-color: white;
+            border-bottom: 1px solid #ddd;
+            
+        }
+        .tab {
+            padding: 14px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .tab:hover {
+            background-color: #ddd;
+        }
+        .tab.active {
+            background-color: #10c800;
+            color: #fff;
+        }
+        .content {
+            display: none;
+            padding: 20px;
+        }
+        .content.active {
+            display:block;
+            justify-content: center;
+        }
+
+        .container{
+            width:auto;
+            max-width: 3000px;
+            
+            background-color: #556B2F;
+            padding: 30px;
+            border-radius: 26px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: #fff;
+            
+        }
+
+        .container h2{
+            text-align: center;
+        }
+
+        .agroia{
+            
+        }
+
+        .chatsubmit{
+            margin-top: -250px;
+            display: flex;
+        }
+
+
+        .container input{
+            margin-top: 260px;
+            width: 100%;
+            
+            padding: 10px 50px 10px 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+            border-radius: 26px;
+            border: #10c800;
+            
+    }
+        
+
+        .container button{
+            margin-left: 10px;
+            margin-top: 260px;
+            border: 0;
+            border-radius: 100%;
+            width: 40px;
+            height: 40px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 150ms;
+        }
+
+        .container button:hover{
+            background-color: #ddd;
+            cursor: pointer;
+        }
+
+
+
+        #analise_solo_inicial h2{
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .containertablepai {
+            width: 70%;
+            margin: 0 auto;
+        }
+        .table, .table2 {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .table input, .table2 input {
+            width: 100%;
+            box-sizing: border-box;
+           
+        }
+
+        .table th, .table td, .table2 th, .table2 td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .table th, .table2 th {
+            background-color: #4CAF50;
+            color: white;
+            width: 100%;
+        }
+        .highlight {
+            background-color: #f2f2f2;
+        }
+        .red {
+            background-color: #f8d7da;
+        }
+        .orange {
+            background-color: #fff3cd;
+        }
+        .green {
+            background-color: #d4edda;
+        }
+        .purple {
+            background-color: #e0bbff;
+        }
+
+        #atualizar{
+            width: 35%;
+            padding: 10px;
+            background-color: #1b8d11;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            margin: auto;
+            justify-content: center;
+        }
+        .sugestao{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="topo">
+
+        
+        <div class="header">
+            <a href="inicio.html"><img src="agro.ia.png" alt=""></a>
+            <div>
+                <button onclick="location.href='login.html'">SAIR</button>
+            </div>
+        </div>
+        
+        <div class="tabs">
+            <div class="tab active" onclick="showContent('agroia')">Converse com a Agro IA</div>
+            <div class="tab" onclick="showContent('analise_solo_inicial')">Informações da Análise de Solo</div>
+            <div class="tab" onclick="showContent('monitoramento_tempo_real')"></div>
+            <div class="tab" onclick="showContent('previsoes_recomendacoes')"></div>
+            <div class="tab" onclick="showContent('gestao_insumos')"></div>
+            <div class="tab" onclick="showContent('reducao_custos')"></div>
+        </div>
+    </div>
+        
+        <section class="noheader">
+            
+            <div id="agroia" class="content active">
+                <div class="container">
+                    <h2>Converse com a Agro IA</h2>
+                    <form id="chat" onsubmit="">
+                        <div class="sugestao">
+
+                            <p>Baseado nas informações fornecidas sobre a análise do solo...</p>
+                            <p>Recomendação: </p>
+                            <p>Correção da concentração de potássio com adubo.</p>
+                            <p>Correção do teor de magnésio.</p><br>
+                            <p>     As faixas de teores adequados para os macronutrientes Mg e K são </p>
+                            <p>respectivamente e 3 a 8 g kg-1 para Mg e ...</p>
+                            
+                        </div>
+                        
+                        <div class="chatsubmit">
+
+                            <input type="text" id="chatentry" placeholder="Digite uma mensagem: " >
+                            
+                            <button type="submit"><i class='bx bx-send'></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div id="analise_solo_inicial" class="content">
+                <h2>Informações da Análise de Solo</h2>
+                <div class="containertablepai">
+                    <div class="containertable">
+                        <table class="table">
+                            <tr>
+                                <th>Elementos</th>
+                                <th>Resultados</th>
+                                <th>Inserir Dados</th>
+                            </tr>
+                            <tr class="green">
+                                <td>pH em CaCl2</td>
+                                <td id="result-ph-cacl2"></td>
+                                <td><input type="number" id="input-ph-cacl2"></td>
+                            </tr>
+                            <tr class="green">
+                                <td>pH em H2O</td>
+                                <td id="result-ph-h2o"></td>
+                                <td><input type="number" id="input-ph-h2o"></td>
+                            </tr>
+                            <tr class="green">
+                                <td>pH em SMP</td>
+                                <td id="result-ph-smp"></td>
+                                <td><input type="number" id="input-ph-smp"></td>
+                            </tr>
+                            <tr class="orange">
+                                <td>Matéria Orgânica (M.O)</td>
+                                <td id="result-mo"></td>
+                                <td><input type="number" id="input-mo"></td>
+                            </tr>
+                            <tr class="orange">
+                                <td>Carbono (C)</td>
+                                <td id="result-carbono"></td>
+                                <td><input type="number" id="input-carbono"></td>
+                            </tr>
+                            <tr class="highlight">
+                                <td>Fósforo Remanescente (Prem)</td>
+                                <td id="result-prem"></td>
+                                <td><input type="number" id="input-prem"></td>
+                            </tr>
+                            <tr class="highlight">
+                                <td>Fósforo (P)</td>
+                                <td id="result-p"></td>
+                                <td><input type="number" id="input-p"></td>
+                            </tr>
+                            <tr class="green">
+                                <td>Potássio (K)</td>
+                                <td id="result-k"></td>
+                                <td><input type="number" id="input-k"></td>
+                            </tr>
+                            <tr class="green">
+                                <td>Cálcio + Magnésio (Ca + Mg)</td>
+                                <td id="result-ca-mg"></td>
+                                <td><input type="number" id="input-ca-mg"></td>
+                            </tr>
+                            <tr class="green">
+                                <td>Cálcio (Ca)</td>
+                                <td id="result-ca"></td>
+                                <td><input type="number" id="input-ca"></td>
+                            </tr>
+                            <tr class="green">
+                                <td>Magnésio (Mg)</td>
+                                <td id="result-mg"></td>
+                                <td><input type="number" id="input-mg"></td>
+                            </tr>
+                            <tr class="green">
+                                <td>Hidrogênio + Alumínio (H + Al)</td>
+                                <td id="result-h-al"></td>
+                                <td><input type="number" id="input-h-al"></td>
+                            </tr>
+                            <tr class="green">
+                                <td>Acidez Total (H + Al)</td>
+                                <td id="result-acidez"></td>
+                                <td><input type="number" id="input-acidez"></td>
+                            </tr>
+                            <tr class="green">
+                                <td>Alumínio (Al)</td>
+                                <td id="result-al"></td>
+                                <td><input type="number" id="input-al"></td>
+                            </tr>
+                            <tr class="highlight">
+                                <td>Soma de Bases (SB)</td>
+                                <td id="result-sb"></td>
+                                <td><input type="number" id="input-sb"></td>
+                            </tr>
+                            <tr class="highlight">
+                                <td>Capacidade de Troca (CTC pH 7,0)</td>
+                                <td id="result-ctc"></td>
+                                <td><input type="number" id="input-ctc"></td>
+                            </tr>
+                            <tr class="highlight">
+                                <td>CTC Efetiva</td>
+                                <td id="result-ctc-efetiva"></td>
+                                <td><input type="number" id="input-ctc-efetiva"></td>
+                            </tr>
+                            <tr class="highlight">
+                                <td>Saturação de Bases (V)</td>
+                                <td id="result-v"></td>
+                                <td><input type="number" id="input-v"></td>
+                            </tr>
+                            <tr class="orange">
+                                <td>Enxofre (S)</td>
+                                <td id="result-s"></td>
+                                <td><input type="number" id="input-s"></td>
+                            </tr>
+                            <tr class="orange">
+                                <td>Sódio (Na)</td>
+                                <td id="result-na"></td>
+                                <td><input type="number" id="input-na"></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="containertable2">
+                        <h2>Micronutrientes</h2>
+                        <table class="table2">
+                            <tr>
+                                <th>Elementos</th>
+                                <th>Resultados</th>
+                                <th>Inserir Dados</th>
+                            </tr>
+                            <tr class="purple">
+                                <td>Cobre (Cu)</td>
+                                <td id="result-cu"></td>
+                                <td><input type="number" id="input-cu"></td>
+                            </tr>
+                            <tr class="purple">
+                                <td>Zinco (Zn)</td>
+                                <td id="result-zn"></td>
+                                <td><input type="number" id="input-zn"></td>
+                            </tr>
+                            <tr class="purple">
+                                <td>Ferro (Fe)</td>
+                                <td id="result-fe"></td>
+                                <td><input type="number" id="input-fe"></td>
+                            </tr>
+                            <tr class="purple">
+                                <td>Manganês (Mn)</td>
+                                <td id="result-mn"></td>
+                                <td><input type="number" id="input-mn"></td>
+                            </tr>
+                            <tr class="purple">
+                                <td>Boro (B)</td>
+                                <td id="result-b"></td>
+                                <td><input type="number" id="input-b"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <button onclick="atualizarResultados()" id="atualizar">Atualizar Resultados</button>
+            </div>
+        
+        <div id="monitoramento_tempo_real" class="content">
+            <h2>Monitoramento em Tempo Real</h2>
+            <p>Dados e gráficos do monitoramento em tempo real...</p>
+        </div>
+        
+        <div id="previsoes_recomendacoes" class="content">
+            <h2>Previsões e Recomendações de Ações</h2>
+            <p>Previsões climáticas e recomendações de ação...</p>
+        </div>
+        
+        <div id="gestao_insumos" class="content">
+            <h2>Gestão de Insumos</h2>
+            <p>Detalhes sobre a gestão de insumos...</p>
+        </div>
+        
+        
+        <div id="reducao_custos" class="content">
+            <h2>Redução de Custos</h2>
+            <p>Técnicas e estratégias para reduzir custos...</p>
+        </div>
+    </section>
+        
+        <script>
+            function showContent(tabId) {
+                var contents = document.getElementsByClassName('content');
+                var tabs = document.getElementsByClassName('tab');
+
+            for (var i = 0; i < contents.length; i++) {
+                contents[i].classList.remove('active');
+            }
+
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active');
+            }
+
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+
+        function atualizarResultados() {
+            const elementos = [
+                { input: 'input-ph-cacl2', result: 'result-ph-cacl2' },
+                { input: 'input-ph-h2o', result: 'result-ph-h2o' },
+                { input: 'input-ph-smp', result: 'result-ph-smp' },
+                { input: 'input-mo', result: 'result-mo' },
+                { input: 'input-carbono', result: 'result-carbono' },
+                { input: 'input-prem', result: 'result-prem' },
+                { input: 'input-p', result: 'result-p' },
+                { input: 'input-k', result: 'result-k' },
+                { input: 'input-ca-mg', result: 'result-ca-mg' },
+                { input: 'input-ca', result: 'result-ca' },
+                { input: 'input-mg', result: 'result-mg' },
+                { input: 'input-h-al', result: 'result-h-al' },
+                { input: 'input-acidez', result: 'result-acidez' },
+                { input: 'input-al', result: 'result-al' },
+                { input: 'input-sb', result: 'result-sb' },
+                { input: 'input-ctc', result: 'result-ctc' },
+                { input: 'input-ctc-efetiva', result: 'result-ctc-efetiva' },
+                { input: 'input-v', result: 'result-v' },
+                { input: 'input-s', result: 'result-s' },
+                { input: 'input-na', result: 'result-na' },
+                { input: 'input-cu', result: 'result-cu' },
+                { input: 'input-zn', result: 'result-zn' },
+                { input: 'input-fe', result: 'result-fe' },
+                { input: 'input-mn', result: 'result-mn' },
+                { input: 'input-b', result: 'result-b' }
+            ];
+
+            elementos.forEach(el => {
+                const input = document.getElementById(el.input);
+                const result = document.getElementById(el.result);
+                result.textContent = input.value;
+            });
+        }
+    </script>
+</body>
+</html>

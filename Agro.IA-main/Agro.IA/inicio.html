@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>AGRO.IA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1b8d11;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-image: url("agricultor_no_celular-transformed.jpeg");
+            background-repeat: no-repeat;
+            
+        }
+
+        .noheader{
+            color: #1b8d11;
+        }
+
+        
+
+        .topo{
+            
+        }
+
+        .header {
+            background-color: white;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+        }
+        .header img {
+            width: 170px;
+            margin-top: -80px;
+            margin-bottom: -80px;
+            justify-content: space-around;
+            overflow: hidden;
+        }
+        .header button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #10c800;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .header button:hover {
+            background-color: #1b8d11;
+        }
+        .tabs {
+            display: flex;
+            justify-content:left;
+            background-color: white;
+            border-bottom: 1px solid #ddd;
+            
+        }
+        .tab {
+            padding: 14px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .tab:hover {
+            background-color: #ddd;
+        }
+        .tab.active {
+            background-color: #10c800;
+            color: #fff;
+        }
+        .content {
+            display: none;
+            padding: 20px;
+        }
+        .content.active {
+            display: block;
+        }
+
+        .container{
+            width: auto;
+            max-width: 3000px;
+            
+            background-color: #556B2F;
+            padding: 30px;
+            border-radius: 26px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: #fff;
+            
+        }
+
+        .container h2{
+            text-align: center;
+        }
+
+        .agroia{
+            
+        }
+
+
+        .container input{
+            margin-top: 260px;
+            width: 100%;
+            
+            padding: 10px 50px 10px 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+            border-radius: 26px;
+            border: #10c800;
+            
+    }
+        
+
+        .container button{
+            border: 0;
+            border-radius: 100%;
+            width: 30px;
+            height: 30px;
+           
+        }
+    </style>
+</head>
+<body>
+    <div class="topo">
+
+        
+        <div class="header">
+            <a href="inicio.html"><img src="agro.ia.png" alt=""></a>
+            <div>
+                <button onclick="location.href='login.html'">SAIR</button>
+            </div>
+        </div>
+        
+        <div class="tabs">
+            <div class="tab active" onclick="showContent('agroia')">Converse com a Agro IA</div>
+            <div class="tab" onclick="showContent('analise_solo_inicial')">Análise de Solo</div>
+            <div class="tab" onclick="showContent('monitoramento_tempo_real')">Monitoramento em Tempo Real</div>
+            <div class="tab" onclick="showContent('previsoes_recomendacoes')">Previsões e Recomendações de Ações</div>
+            <div class="tab" onclick="showContent('gestao_insumos')">Gestão de Insumos</div>
+            <div class="tab" onclick="showContent('reducao_custos')"></div>
+        </div>
+    </div>
+        
+        <section class="noheader">
+            
+            <div id="agroia" class="content active">
+                <div class="container">
+                    <h2>Converse com a Agro IA</h2>
+                    <form id="chat" onsubmit="">
+                        
+                        <input type="text" id="chatentry" placeholder="Digite uma mensagem: " >
+                
+                        <button type="submit"><i class='bx bx-send'></i></button>
+                    </form>
+                </div>
+            </div>
+            
+        <div id="analise_solo_inicial" class="content">
+            <h2> Informações da Análise de Solo</h2>
+            <p>Informações sobre a análise de solo inicial...</p>
+            <p>sfgsfgsfgsd</p>
+            <p>sfgsfgsfgsd</p>
+            <p>sfgsfgsfgsd</p>
+            <p>sfgsfgsfgsd</p>
+            <p>sfgsfgsfgsd</p>
+            <p>sfgsfgsfgsd</p>
+            <p>sfgsfgsfgsd</p>
+            <p>sfgsfgsfgsd</p>
+            <p>sfgsfgsfgsd</p>
+            <p>sfgsfgsfgsd</p>
+            <p>sfgsfgsfgsd</p>
+            <p>sfgsfgsfgsd</p>
+            <p>sfgsfgsfgsd</p>
+            <p>sfgsfgsfgsd</p>
+        </div>
+        
+        <div id="monitoramento_tempo_real" class="content">
+            <h2>Monitoramento em Tempo Real</h2>
+            <p>Dados e gráficos do monitoramento em tempo real...</p>
+        </div>
+        
+        <div id="previsoes_recomendacoes" class="content">
+            <h2>Previsões e Recomendações de Ações</h2>
+            <p>Previsões climáticas e recomendações de ação...</p>
+        </div>
+        
+        <div id="gestao_insumos" class="content">
+            <h2>Gestão de Insumos</h2>
+            <p>Detalhes sobre a gestão de insumos...</p>
+        </div>
+        
+        
+        <div id="reducao_custos" class="content">
+            <h2>Redução de Custos</h2>
+            <p>Técnicas e estratégias para reduzir custos...</p>
+        </div>
+    </section>
+        
+        <script>
+            function showContent(tabId) {
+                var contents = document.getElementsByClassName('content');
+                var tabs = document.getElementsByClassName('tab');
+
+            for (var i = 0; i < contents.length; i++) {
+                contents[i].classList.remove('active');
+            }
+
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active');
+            }
+
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
